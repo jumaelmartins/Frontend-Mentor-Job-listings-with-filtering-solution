@@ -5,8 +5,8 @@
 ### Etapa 1
 
 [x] - Iniciar repositorio
-[] - Organizar arquivo e diretorios
-[] - Resetar CSS
+[x] - Organizar arquivo e diretorios
+[x] - Resetar CSS
 [] - Criar estrutura html inicial 
 [] - Criar Estilização inicial (mobile)
 
