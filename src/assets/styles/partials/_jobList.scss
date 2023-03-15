@@ -1,0 +1,29 @@
+@use "variables.scss";
+
+ul {
+  width: 90%;
+  margin: 10rem auto;
+}
+
+li {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 2.5rem;
+  position: relative;
+
+  .companyLogo {
+    position: absolute;
+    top: -2.5rem;
+  }
+
+  .jobInformation {
+    display: flex;
+    flex-direction: column;
+    .companyDesciption {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

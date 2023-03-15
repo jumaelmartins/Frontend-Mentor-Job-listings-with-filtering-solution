@@ -1,0 +1,7 @@
+@use "variables.scss";
+
+header {
+    height: 10rem;
+    background: url(../../../../src/assets/images/bg-header-mobile.svg)  variables.$primary;
+    background-size: cover;
+}

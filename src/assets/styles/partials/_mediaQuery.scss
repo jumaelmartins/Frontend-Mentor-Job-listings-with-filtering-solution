@@ -1,0 +1,16 @@
+@use "variables.scss";
+
+@media screen and (min-width: 768px) {
+  header {
+    background: url(../../../../src/assets/images/bg-header-desktop.svg)
+      variables.$primary;
+  }
+
+  
+}
+
+@media screen and (min-width: 1024px) {
+  main > ul {
+    width: 80%;
+  }
+}
