@@ -7,7 +7,7 @@
 [x] - Iniciar repositorio
 [x] - Organizar arquivo e diretorios
 [x] - Resetar CSS
-[] - Criar estrutura html inicial 
+[x] - Criar estrutura html inicial 
 [] - Criar Estilização inicial (mobile)
 
 ### Etapa 2
