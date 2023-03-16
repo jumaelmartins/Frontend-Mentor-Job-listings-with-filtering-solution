@@ -12,6 +12,12 @@ li {
   background: white;
   padding: 2.5rem;
   position: relative;
+  border-radius: 0.4rem;
+  box-shadow: 0.3rem 0.3rem 3rem -1rem map-get(variables.$neutralColors, darkGrayishCyan);
+
+  &.featured {
+    border-left: 0.5rem solid variables.$primary;
+  }
 
   .companyLogo {
     position: absolute;
@@ -24,6 +30,96 @@ li {
     .companyDesciption {
       display: flex;
       align-items: center;
+
+      .companyName {
+        color: variables.$primary;
+        margin: 1rem 0;
+      }
+
+      .featureContainer {
+        display: flex;
+        align-items: center;
+        margin: 0 1rem;
+        p {
+          font-size: 1.2rem;
+          color: white;
+          margin: 0 .2rem;
+        }
+      }
+
+      .new {
+        background-color: variables.$primary;
+        padding: 0.3rem 0.5rem;
+        border-radius: 1rem;
+      }
+
+      .featured {
+        background-color: map-get(variables.$neutralColors, veryDarkCyan);
+        padding: 0.3rem 0.5rem;
+        border-radius: 1rem;
+      }
     }
+
+    .jobTitles {
+      color: map-get(variables.$neutralColors, veryDarkCyan);
+      margin: .5rem 0;
+    }
+
+    .jobDescription {
+      width: 100%;
+      display: flex;
+      border-bottom: .1rem solid
+        map-get(variables.$neutralColors, darkGrayishCyan);
+      padding: 0.5rem 0;
+      color: map-get(variables.$neutralColors, darkGrayishCyan);
+
+      :nth-child(2) {
+        margin: 0 1rem;
+        position: relative;
+
+        &::after {
+          position: absolute;
+          content: "";
+          background-color: map-get(variables.$neutralColors, darkGrayishCyan);
+          height: .3rem;
+          width: .3rem;
+          border-radius: 100%;
+          top: .5rem;
+          right: -.7rem;
+        }
+
+        &::before {
+          position: absolute;
+          content: "";
+          background-color: map-get(variables.$neutralColors, darkGrayishCyan);
+          height: .3rem;
+          width: .3rem;
+          border-radius: 100%;
+          top: .5rem;
+          left: -.7rem;
+        }
+      }
+    }
+  }
+
+  .categories {
+    margin: .5rem 0;
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    p {
+      background-color: map-get(
+        variables.$neutralColors,
+        lightGrayishCyanFilter
+      );
+      color: variables.$primary;
+      margin: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
   }
 }

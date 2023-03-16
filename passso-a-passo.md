@@ -8,9 +8,9 @@
 [x] - Organizar arquivo e diretorios
 [x] - Resetar CSS
 [x] - Criar estrutura html inicial 
-[] - Criar Estilização inicial (mobile) :
+[X] - Criar Estilização inicial (mobile) :
     [x] - Header
-    [] - Joblist
+    [X] - Joblist
 
 ### Etapa 2
 
