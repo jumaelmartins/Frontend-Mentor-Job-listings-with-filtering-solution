@@ -1,8 +1,5 @@
 import json from "/src/assets/data.json";
 
-
-const url = "/src/assets/data.json";
-
 export const getJobList = async () => {
   try {
     const jsonBody = json;
@@ -70,3 +67,36 @@ const arrayToHtml = (array) => {
   });
   return p;
 };
+
+const filter = [];
+
+const addFilter = () => {
+  document.addEventListener("click", (e) => {
+    let iten = categories.filter((word) => word === e.target.innerHTML);
+
+    if (iten.length > 0) {
+      filter.push(iten.join(","));
+    }
+
+    console.log(filter);
+  });
+};
+addFilter();
+const categories = [
+  "Frontend",
+  "Backend",
+  "Fullstack",
+  "Junior",
+  "Midweight",
+  "Senior",
+  "Python",
+  "Ruby",
+  "JavaScript",
+  "HTML",
+  "React",
+  "Sass",
+  "Vue",
+  "Django",
+  "RoR",
+  "CSS",
+];

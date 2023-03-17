@@ -14,9 +14,13 @@
 
 ### Etapa 2
 
-[] - Criar Função para receber os dados do arquivo data.json
+[X] - Criar Função para receber os dados do arquivo data.json
+[X] - Criar função para carregar os dados em tela
 [] - Criar Função para filtrar dados por categoria
-[] - Criar função para carregar os dados em tela
+[] - Criar função para exbir filtro no top da pagina, quando alver algum item filtrado
+[] - Criar Função para remover o filtro ao clicar
+[] - Exibir dados Filtrados na Tela
+
 
 ### Etapa 3
 [] - Tratar responsividade (desktop)
