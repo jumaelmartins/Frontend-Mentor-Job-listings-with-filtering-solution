@@ -1,11 +1,11 @@
-const url = "src/data.json";
+import json from "/src/assets/data.json";
 
 
+const url = "/src/assets/data.json";
 
 export const getJobList = async () => {
   try {
-    const response = await fetch(url);
-    const jsonBody = await response.json();
+    const jsonBody = json;
     return jsonBody;
   } catch (e) {
     console.log(e);
@@ -19,6 +19,7 @@ export const convertJobListToHtml = async () => {
     // console.log(job.featured)
     let jobListHtml = document.querySelector("ul");
 
+    // console.log(job)
     jobListHtml.innerHTML += `
             <li class="${job.featured ? "featured" : ""}">
             <div class="jobInformation">
@@ -30,7 +31,7 @@ export const convertJobListToHtml = async () => {
                 <div class="companyDesciption">
                     <h2 class="companyName">${job.company}</h2>
                     <div class="featureContainer">
-                    <p class="${job.new ? "NEW!" : ""}">${
+                    <p class="${job.new ? "new" : ""}">${
       job.new ? "NEW!" : ""
     }</p>
                     <p class="${job.featured ? "featured" : ""}">${
@@ -52,12 +53,20 @@ export const convertJobListToHtml = async () => {
                 </div>
                 
                 <div class="categories">
-                ${job.languages.forEach((lang) => {
-                  let categories = document.querySelectorAll(".categories");
-                  console.log(categories);
-                })}
+                <p>${job.role}</P>
+                <p>${job.level}</P>
+                ${arrayToHtml(job.languages).innerHTML}
+                ${arrayToHtml(job.tools).innerHTML}
                 </div>
-            </li>
-            `;
+                </li>
+                `;
   });
+};
+
+const arrayToHtml = (array) => {
+  let p = document.createElement("p");
+  array.forEach((item) => {
+    p.innerHTML += `<p>${item}</p>`;
+  });
+  return p;
 };
