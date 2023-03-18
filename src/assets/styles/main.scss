@@ -1,6 +1,11 @@
-@use "./partials/base";
 @use "./partials/header";
 @use "./partials/jobList";
+@use "./partials/filter";
+@use "./partials/base";
 @use "./partials/mediaQuery";
+
+body {
+    background-image: url(../images/);
+}
 
 

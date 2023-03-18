@@ -10,8 +10,9 @@ export const getJobList = async () => {
 };
 
 export const convertJobListToHtml = async () => {
-  const jobList = await getJobList();
+  let jobList = await getJobList();
   let p = document.createElement("p");
+
   jobList.forEach((job) => {
     // console.log(job.featured)
     let jobListHtml = document.querySelector("ul");
@@ -71,17 +72,28 @@ const arrayToHtml = (array) => {
 const filter = [];
 
 const addFilter = () => {
+  let filterHtml = document.querySelector(".filter");
+
   document.addEventListener("click", (e) => {
     let iten = categories.filter((word) => word === e.target.innerHTML);
-
     if (iten.length > 0) {
-      filter.push(iten.join(","));
-    }
+      if (filter.indexOf(iten.join(",")) !== -1) {
+        return;
+      } else {
+        filter.push(iten.join(","));
+        let p = document.createElement("p");
+        p.innerHTML = iten;
 
-    console.log(filter);
+        filterHtml.classList.remove("hidden");
+        filterHtml.appendChild(p);
+        return iten.join(",");
+      }
+    }
   });
 };
+
 addFilter();
+
 const categories = [
   "Frontend",
   "Backend",
@@ -100,3 +112,18 @@ const categories = [
   "RoR",
   "CSS",
 ];
+
+const filterItens = async (arrayObj) => {
+  let filterHtml = document.querySelector(".filter");
+
+  filterHtml.addEventListener("change", async (e) => {
+    if (filter.length > 0) {
+      await arrayObj;
+      arrayObj.filter((obj) => {
+        return (obj.role = addFilter());
+      });
+    } else {
+      return arrayObj;
+    }
+  });
+};

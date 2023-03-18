@@ -16,6 +16,8 @@
 
 [X] - Criar Função para receber os dados do arquivo data.json
 [X] - Criar função para carregar os dados em tela
+[X] - Estilização do filtro
+[X] - Evitar que seja aplicado o mesmo filtro mais de 1 vez.
 [] - Criar Função para filtrar dados por categoria
 [] - Criar função para exbir filtro no top da pagina, quando alver algum item filtrado
 [] - Criar Função para remover o filtro ao clicar
