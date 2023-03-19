@@ -18,10 +18,10 @@
 [X] - Criar função para carregar os dados em tela
 [X] - Estilização do filtro
 [X] - Evitar que seja aplicado o mesmo filtro mais de 1 vez.
-[] - Criar Função para filtrar dados por categoria
-[] - Criar função para exbir filtro no top da pagina, quando alver algum item filtrado
+[X] - Criar Função para filtrar dados por categoria
+[X] - Criar função para exbir filtro no top da pagina, quando alver algum item filtrado
+[X] - Exibir dados Filtrados na Tela
 [] - Criar Função para remover o filtro ao clicar
-[] - Exibir dados Filtrados na Tela
 
 
 ### Etapa 3
