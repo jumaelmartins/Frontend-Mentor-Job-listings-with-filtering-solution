@@ -1,6 +1,5 @@
 import "../styles/main.scss";
 import { getJobList } from "./jobListData";
-import json from "/src/assets/data.json";
 
 const jobListHtml = document.querySelector("ul");
 const filter = [];
@@ -56,22 +55,46 @@ const loadItens = async () => {
   jobListHtml.innerHTML = jobList;
 };
 
-const filterItens = async () => {
-  jobListHtml.innerHTML = "";
-  const jobList = Array.from(await getJobList())
-    .filter((job) => {
-      if ((filter.length > 0)) {
-        console.log(filter[filter.length - 1]);
-        return (
-          job.role.includes(filter[filter.length - 1]) ||
-          job.level.includes(filter[filter.length - 1]) ||
-          job.languages.includes(filter[filter.length - 1])
-        );
+const filterItens = () => {
+  const categories = document.querySelectorAll("li > [class=categories]");
+
+  categories.forEach((iten) => {
+    const filteredIten = filter.every((value) =>
+      iten.textContent.includes(value)
+    );
+    if (!filteredIten) iten.parentNode.classList.add("hidden");
+  });
+};
+
+const filterRemove = () => {
+  const filterDiv = document.querySelectorAll(".filter p");
+
+  filterDiv.forEach((iten) => {
+    iten.onclick = (e) => {
+      if (e.target.nodeName === "BUTTON") {
+        e.target.closest("p").classList.add("hidden");
+        console.log(e.target.parentNode.textContent);
+
+        const index = filter.indexOf(e.target.parentNode.textContent);
+        if (index !== -1) {
+          filter.splice(index, 1);
+        }
+
+        const categories = document.querySelectorAll("li > [class=categories]");
+
+        categories.forEach((iten) => {
+          const filteredIten = filter.every((value) =>
+            iten.textContent.includes(value)
+          );
+          if (filteredIten) iten.parentNode.classList.remove("hidden");
+        });
+
+        if (filter.length === 0) {
+          iten.closest("div").classList.add("hidden");
+        }
       }
-    })
-    .map(convertJobListToHtml)
-    .join("");
-  jobListHtml.innerHTML = jobList;
+    };
+  });
 };
 
 const arrayToHtml = (array) => {
@@ -93,10 +116,14 @@ const addFilter = () => {
       } else {
         filter.push(iten.join(","));
         let p = document.createElement("p");
+        let button = document.createElement("button");
         p.innerHTML = iten;
+        // button.innerHTML = "X";
+        p.appendChild(button);
         filterHtml.classList.remove("hidden");
         filterHtml.appendChild(p);
         filterItens();
+        filterRemove();
       }
     }
   });

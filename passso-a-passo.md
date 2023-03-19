@@ -21,10 +21,10 @@
 [X] - Criar Função para filtrar dados por categoria
 [X] - Criar função para exbir filtro no top da pagina, quando alver algum item filtrado
 [X] - Exibir dados Filtrados na Tela
-[] - Criar Função para remover o filtro ao clicar
+[X] - Criar Função para remover o filtro ao clicar
 
 
 ### Etapa 3
-[] - Tratar responsividade (desktop)
+[X] - Tratar responsividade (desktop)
 [] - Revisar Codigo
 [] - Atualizar o Readme

@@ -21,9 +21,8 @@
       border-radius: 0.5rem;
       position: relative;
       z-index: 2;
-
-      &::after {
-        content: "X";
+      
+      button {
         background-color: variables.$primary;
         display: flex;
         text-align: center;
@@ -38,9 +37,13 @@
         border-left: .3rem;
         z-index: 0;
         cursor: pointer;
+        border: none;
+        outline: none;
+
+        &::after {
+          content: "X";
+        }
       }
-
-
     }
 
 }
