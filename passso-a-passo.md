@@ -26,5 +26,5 @@
 
 ### Etapa 3
 [X] - Tratar responsividade (desktop)
-[] - Revisar Codigo
-[] - Atualizar o Readme
+[X] - Revisar Codigo
+[X] - Atualizar o Readme
