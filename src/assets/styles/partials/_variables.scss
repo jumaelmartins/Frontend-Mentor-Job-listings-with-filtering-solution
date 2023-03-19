@@ -9,3 +9,27 @@ $neutralColors: (
     veryDarkCyan: hsl(180, 14%, 20%)
 );
 
+@mixin flex ($direction, $wrap, $align, $justify) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin centralize ($width, $marginX, $marginY) {
+    width: $width;
+    margin: $marginX $marginY;
+}
+
+@mixin position ($position, $top, $right, $bottom, $left) {
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+@mixin size ($height, $widht) {
+    height: $height;
+    width: $widht;
+}

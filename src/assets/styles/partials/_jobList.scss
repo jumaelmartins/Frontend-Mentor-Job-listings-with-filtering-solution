@@ -1,14 +1,12 @@
 @use "variables.scss";
 
 ul {
-  width: 90%;
-  margin: 10rem auto;
+  @include variables.centralize(90%, 14rem, auto);
 }
 
 li {
-  margin: 5rem 0;
-  display: flex;
-  flex-direction: column;
+  margin: 3.5rem 0;
+  @include variables.flex(column, nowrap, "", "");
   background: white;
   padding: 2.5rem;
   position: relative;
@@ -25,11 +23,9 @@ li {
   }
 
   .jobInformation {
-    display: flex;
-    flex-direction: column;
+    @include variables.flex(column, nowrap, "", "");
     .companyDesciption {
-      display: flex;
-      align-items: center;
+      @include variables.flex("", "", center, "");
 
       .companyName {
         color: variables.$primary;
@@ -37,13 +33,12 @@ li {
       }
 
       .featureContainer {
-        display: flex;
-        align-items: center;
+        @include variables.flex("", "", center, "");
         margin: 0 1rem;
         p {
           font-size: 1.2rem;
           color: white;
-          margin: 0 .2rem;
+          margin: 0 0.2rem;
         }
       }
 
@@ -62,13 +57,18 @@ li {
 
     .jobTitles {
       color: map-get(variables.$neutralColors, veryDarkCyan);
-      margin: .5rem 0;
+      margin: 0.5rem 0;
+
+      &:hover {
+        color: variables.$primary;
+        cursor: pointer;
+      }
     }
 
     .jobDescription {
       width: 100%;
       display: flex;
-      border-bottom: .1rem solid
+      border-bottom: 0.1rem solid
         map-get(variables.$neutralColors, darkGrayishCyan);
       padding: 0.5rem 0;
       color: map-get(variables.$neutralColors, darkGrayishCyan);
@@ -78,45 +78,44 @@ li {
         position: relative;
 
         &::after {
-          position: absolute;
+          @include variables.position(absolute, 0.5rem, -0.7rem, "", "");
           content: "";
           background-color: map-get(variables.$neutralColors, darkGrayishCyan);
-          height: .3rem;
-          width: .3rem;
+          @include variables.size(0.3rem, 0.3rem);
           border-radius: 100%;
-          top: .5rem;
-          right: -.7rem;
         }
 
         &::before {
-          position: absolute;
           content: "";
           background-color: map-get(variables.$neutralColors, darkGrayishCyan);
-          height: .3rem;
-          width: .3rem;
+          @include variables.size(0.3rem, 0.3rem);
           border-radius: 100%;
-          top: .5rem;
-          left: -.7rem;
+          @include variables.position(absolute, 0.5rem, "", "", -0.7rem);
         }
       }
     }
   }
 
   .categories {
-    margin: .5rem 0;
-    display: flex;
+    margin: 0.5rem 0;
+    @include variables.flex(row, wrap, "", "");
     max-width: 100%;
-    flex-wrap: wrap;
     p {
       background-color: map-get(
         variables.$neutralColors,
         lightGrayishCyanFilter
       );
       color: variables.$primary;
-      margin: .5rem 1rem .5rem 0;
+      margin: 0.5rem 1rem 0.5rem 0;
       padding: 0.5rem;
       border-radius: 0.5rem;
       cursor: pointer;
+
+      &:hover {
+        background-color: variables.$primary;
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 

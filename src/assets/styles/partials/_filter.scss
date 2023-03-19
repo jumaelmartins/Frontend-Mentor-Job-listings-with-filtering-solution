@@ -1,49 +1,44 @@
 @use "variables";
 
 .filter {
-   display: flex;
-   flex-wrap: wrap;
-   width: 90%;
-   background-color: white;
-   position: absolute;
-   top: 12%;
-   left: 5%;
-   padding: 1rem;
-   border-radius: .3rem;
-    p {
-      background-color: map-get(
-        variables.$neutralColors,
-        lightGrayishCyanFilter
-      );
-      color: variables.$primary;
-      margin: .5rem 3rem .5rem 0;
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-      position: relative;
-      z-index: 2;
-      
-      button {
-        background-color: variables.$primary;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        width: 2.3rem;
-        height: 2.35rem;
-        position: absolute;
-        right: -2rem;
-        top: 0;
-        color: white;
-        border-left: .3rem;
-        z-index: 0;
-        cursor: pointer;
-        border: none;
-        outline: none;
+  @include variables.flex(row, wrap, "", "");
+  @include variables.position(absolute, 8rem, "", "", 5%);
+  width: 90%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 3rem -1rem map-get(variables.$neutralColors, darkGrayishCyan);
+  z-index: 1;
+  p {
+    background-color: map-get(variables.$neutralColors, lightGrayishCyanFilter);
+    color: variables.$primary;
+    margin: 0.5rem 3rem 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    position: relative;
+    z-index: 2;
 
-        &::after {
-          content: "X";
-        }
+    button {
+      background-color: variables.$primary;
+      @include variables.flex("", "", center, center);
+      @include variables.position(absolute, 0, -2rem, "", "");
+      @include variables.size(2.35rem, 2.3rem);
+      text-align: center;
+      color: white;
+      border-left: 0.3rem;
+      z-index: 0;
+      cursor: pointer;
+      border-radius: 0.2rem;
+      border: none;
+      outline: none;
+
+      &:hover {
+        background-color: map-get(variables.$neutralColors, veryDarkCyan);
+      }
+
+      &::after {
+        content: "X";
       }
     }
-
+  }
 }

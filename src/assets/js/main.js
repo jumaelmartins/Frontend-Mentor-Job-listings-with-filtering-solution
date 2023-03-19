@@ -1,9 +1,10 @@
 import "../styles/main.scss";
 import { getJobList } from "./jobListData";
 
-const jobListHtml = document.querySelector("ul");
-const filter = [];
+const jobListHtml = document.querySelector("ul"); 
+const filter = []; /* Array para captirar os filtros setados pelo usuaario*/
 
+// função para ler os dados do json e converter em html
 const convertJobListToHtml = (job) => {
   return `
               <li class="${job.featured ? "featured" : ""}">
@@ -47,6 +48,7 @@ const convertJobListToHtml = (job) => {
                   `;
 };
 
+// função para carregar os itens na pagina
 const loadItens = async () => {
   jobListHtml.innerHTML = "";
   const jobList = Array.from(await getJobList())
@@ -55,6 +57,7 @@ const loadItens = async () => {
   jobListHtml.innerHTML = jobList;
 };
 
+// função para filtrar os itens na pagina
 const filterItens = () => {
   const categories = document.querySelectorAll("li > [class=categories]");
 
@@ -66,6 +69,7 @@ const filterItens = () => {
   });
 };
 
+// função para remover os filtros
 const filterRemove = () => {
   const filterDiv = document.querySelectorAll(".filter p");
 
@@ -73,8 +77,6 @@ const filterRemove = () => {
     iten.onclick = (e) => {
       if (e.target.nodeName === "BUTTON") {
         e.target.closest("p").classList.add("hidden");
-        console.log(e.target.parentNode.textContent);
-
         const index = filter.indexOf(e.target.parentNode.textContent);
         if (index !== -1) {
           filter.splice(index, 1);
@@ -97,6 +99,7 @@ const filterRemove = () => {
   });
 };
 
+// função para converter array em html
 const arrayToHtml = (array) => {
   let p = document.createElement("p");
   array.forEach((item) => {
@@ -105,6 +108,7 @@ const arrayToHtml = (array) => {
   return p;
 };
 
+// função para adicionar o filtro no array filter e exibir os filtros aplicados no topo da pagina
 const addFilter = () => {
   let filterHtml = document.querySelector(".filter");
 
@@ -118,7 +122,6 @@ const addFilter = () => {
         let p = document.createElement("p");
         let button = document.createElement("button");
         p.innerHTML = iten;
-        // button.innerHTML = "X";
         p.appendChild(button);
         filterHtml.classList.remove("hidden");
         filterHtml.appendChild(p);
@@ -129,6 +132,7 @@ const addFilter = () => {
   });
 };
 
+// categorias de filtro
 const categories = [
   "Frontend",
   "Backend",

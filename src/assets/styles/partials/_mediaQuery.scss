@@ -2,28 +2,22 @@
 
 @media screen and (min-width: 768px) {
   header {
-    background: url(/images/bg-header-desktop.svg)
-      variables.$primary;
+    background: url(/images/bg-header-desktop.svg) variables.$primary;
   }
 
   li {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
+    @include variables.flex(row, nowrap, center, space-between);
+    padding: 1rem;
     .companyLogo {
-      position: relative;
-      top: auto;
+      @include variables.position(relative, auto, "", "", "");
       img {
-        width: 78px;
+        width: 64px;
       }
     }
 
     .jobInformation {
       margin: 0 2rem;
-      flex-direction: row;
-      align-items: center;
+      @include variables.flex(row, nowrap, center, "");
       .jobDescription {
         border: none;
         :nth-child(2) {
@@ -35,7 +29,7 @@
           }
 
           &::before {
-            top: .5rem;
+            top: 0.5rem;
             left: -1.7rem;
           }
         }
@@ -50,6 +44,10 @@
       justify-self: flex-end;
     }
   }
+
+  .filter {
+    padding: 1rem 2.5rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -60,5 +58,6 @@
   .filter {
     width: 80%;
     left: 10%;
+    padding: 1rem 4rem;
   }
 }

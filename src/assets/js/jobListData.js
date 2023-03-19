@@ -1,5 +1,7 @@
 import json from "/src/assets/data.json";
 
+// função para ler os dados do arquivo json
+
 export const getJobList = async () => {
   try {
     const jsonBody = json;
@@ -8,3 +10,4 @@ export const getJobList = async () => {
     console.log(e);
   }
 };
+
